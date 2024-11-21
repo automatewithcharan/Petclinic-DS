@@ -57,7 +57,7 @@ pipeline {
         stage("Docker Build & Push"){
             steps{
                 script{
-                   withDockerRegistry(credentialsId: '4b0ef330-39ad-4382-a479-d32d5e27e8ea', toolName: 'docker') {
+                   withDockerRegistry(credentialsId: 'f0037abb-e18b-4523-b9eb-b9f8d8317a6f', toolName: 'docker') {
                         
                         sh "docker build -t image1 ."
                         sh "docker tag image1 adijaiswal/pet-clinic123:latest "
