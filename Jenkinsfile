@@ -69,7 +69,8 @@ pipeline {
         
         stage("TRIVY"){
             steps{
-                sh "trivy image pillinayan/pet-clinic123:latest"
+                sh 'trivy clean --java-db'
+                sh 'trivy image --timeout 5m pillinayan/pet-clinic123:latest'
             }
         }
         
