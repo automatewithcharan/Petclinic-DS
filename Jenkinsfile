@@ -6,9 +6,9 @@ pipeline {
         maven 'maven3.8.7'
     }
     
-    environment {
-        SCANNER_HOME=tool 'sonar-scanner'
-    }
+    // environment {
+    //     SCANNER_HOME=tool 'sonar-scanner'
+    // }
     
     stages{
         
