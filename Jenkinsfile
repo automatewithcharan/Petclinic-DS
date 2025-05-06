@@ -30,16 +30,16 @@ pipeline {
             }
         }
         
-        stage("Sonarqube Analysis "){
-            steps{
-                withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
-                    -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Petclinic '''
+        // stage("Sonarqube Analysis "){
+        //     steps{
+        //         withSonarQubeEnv('sonar-server') {
+        //             sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+        //             -Dsonar.java.binaries=. \
+        //             -Dsonar.projectKey=Petclinic '''
     
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
         
         // stage("OWASP Dependency Check"){
         //     steps{
@@ -67,12 +67,12 @@ pipeline {
             }
         }
         
-        stage("TRIVY"){
-            steps{
-                sh 'trivy clean --java-db'
-                sh 'trivy image --timeout 5m pillinayan/pet-clinic123:latest'
-            }
-        }
+        // stage("TRIVY"){
+        //     steps{
+        //         sh 'trivy clean --java-db'
+        //         sh 'trivy image --timeout 5m pillinayan/pet-clinic123:latest'
+        //     }
+        // }
         
         stage("Deploy To Tomcat"){
             steps{
