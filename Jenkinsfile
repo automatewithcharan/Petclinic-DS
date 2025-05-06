@@ -69,18 +69,18 @@ pipeline {
             }
         }
         
-        stage("Docker Build & Push"){
-            steps{
-                script{
-                   withDockerRegistry(credentialsId: 'f0037abb-e18b-4523-b9eb-b9f8d8317a6f', toolName: 'docker') {
+        // stage("Docker Build & Push"){
+        //     steps{
+        //         script{
+        //            withDockerRegistry(credentialsId: 'f0037abb-e18b-4523-b9eb-b9f8d8317a6f', toolName: 'docker') {
                         
-                        sh "docker build -t image1 ."
-                        sh "docker tag image1 pillinayan/pet-clinic123:latest "
-                        sh "docker push pillinayan/pet-clinic123:latest "
-                    }
-                }
-            }
-        }
+        //                 sh "docker build -t image1 ."
+        //                 sh "docker tag image1 pillinayan/pet-clinic123:latest "
+        //                 sh "docker push pillinayan/pet-clinic123:latest "
+        //             }
+        //         }
+        //     }
+        // }
         
         // stage("TRIVY"){
         //     steps{
