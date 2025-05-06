@@ -19,16 +19,17 @@ pipeline {
         }
         
         stage("Compile"){
-           steps {
+          steps {
                 script {
                     def jdkPath = tool name: 'jdk17', type: 'hudson.model.JDK'
                     env.JAVA_HOME = jdkPath
-                    env.PATH = "${jdkPath}/bin:" + env.PATH.replaceAll(/(:)?\/opt\/java\/openjdk\/bin(:)?/, '')
+                    env.PATH = "${jdkPath}/bin:" + env.PATH
                 }
 
                 sh '''
                     echo "JAVA_HOME is: $JAVA_HOME"
-                    export PATH=$JAVA_HOME/bin:$PATH
+                    PATH=$JAVA_HOME/bin:$PATH
+                    export PATH
                     which java
                     which javac
                     java -version
