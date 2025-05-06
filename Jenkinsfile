@@ -93,7 +93,7 @@ pipeline {
             steps {
     sh '''
       echo "Current directory: $(pwd)"
-      cp target/petclinic.war /opt/apache-tomcat-9.0.65/webapps/
+      cp target/petclinic.war /opt/tomcat/webapps/
     '''
   }
         }
